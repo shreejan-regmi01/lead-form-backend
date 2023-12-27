@@ -45,7 +45,7 @@ export class CreateApplicationDto {
   usage: string;
 
   //https://stackoverflow.com/questions/53650528/validate-nested-objects-using-class-validator-in-nest-js-controller/53685045#53685045
-  @ValidateNested()
-  @Type(() => VehicleDto)
-  vehicle: VehicleDto;
+  // @ValidateNested()
+  // @Type(() => VehicleDto)
+  // vehicle: VehicleDto;
 }
