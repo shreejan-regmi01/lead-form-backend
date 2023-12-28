@@ -1,5 +1,5 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
-
+import { Column, DataType, HasOne, Model, Table } from 'sequelize-typescript';
+import { Vehicle } from 'src/vehicles/vehicle.model';
 @Table({ timestamps: true })
 export class Application extends Model {
   @Column({
@@ -33,5 +33,6 @@ export class Application extends Model {
   @Column
   usage: string;
 
-  //   vehicle: string;
+  @HasOne(() => Vehicle)
+  vehicle: Vehicle;
 }

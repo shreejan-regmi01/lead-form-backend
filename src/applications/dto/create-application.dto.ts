@@ -4,9 +4,9 @@ import {
   IsEnum,
   IsNumber,
   IsString,
-  ValidateNested,
+  // ValidateNested,
 } from 'class-validator';
-import { VehicleDto } from './vehicle.dto';
+// import { VehicleDto } from '../../vehicles/dto/vehicle.dto';
 
 enum Term {
   OneYear = '1 year',

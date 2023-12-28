@@ -13,4 +13,7 @@ export class ApplicationsService {
     const application = await this.applicationModel.create({ ...dto });
     return application;
   }
+
+  //todo: create vehicles module
+  //todo: https://stackoverflow.com/questions/68407525/many-to-one-using-sequelize-and-nestjs map association using this example
 }
