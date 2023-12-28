@@ -1,12 +1,5 @@
-import { Transform, Type } from 'class-transformer';
-import {
-  IsBoolean,
-  IsEnum,
-  IsNumber,
-  IsString,
-  // ValidateNested,
-} from 'class-validator';
-// import { VehicleDto } from '../../vehicles/dto/vehicle.dto';
+import { Transform } from 'class-transformer';
+import { IsBoolean, IsEnum, IsNumber, IsString } from 'class-validator';
 
 enum Term {
   OneYear = '1 year',
