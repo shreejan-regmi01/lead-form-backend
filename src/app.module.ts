@@ -7,6 +7,7 @@ import { Application } from './applications/application.model';
 import { VehiclesModule } from './vehicles/vehicles.module';
 import { Vehicle } from './vehicles/vehicle.model';
 
+//https://stackoverflow.com/questions/60090082/sequelize-model-has-not-been-defined-when-relationship-across-multiple-databa
 @Module({
   imports: [
     ApplicationsModule,
