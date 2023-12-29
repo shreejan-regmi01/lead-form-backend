@@ -1,12 +1,5 @@
-import { Transform, Type } from 'class-transformer';
-import {
-  IsBoolean,
-  IsEnum,
-  IsNumber,
-  IsString,
-  ValidateNested,
-} from 'class-validator';
-import { VehicleDto } from './vehicle.dto';
+import { Transform } from 'class-transformer';
+import { IsBoolean, IsEnum, IsNumber, IsString } from 'class-validator';
 
 enum Term {
   OneYear = '1 year',
@@ -45,7 +38,7 @@ export class CreateApplicationDto {
   usage: string;
 
   //https://stackoverflow.com/questions/53650528/validate-nested-objects-using-class-validator-in-nest-js-controller/53685045#53685045
-  @ValidateNested()
-  @Type(() => VehicleDto)
-  vehicle: VehicleDto;
+  // @ValidateNested()
+  // @Type(() => VehicleDto)
+  // vehicle: VehicleDto;
 }

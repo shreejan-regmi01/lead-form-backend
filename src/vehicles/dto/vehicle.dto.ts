@@ -1,7 +1,10 @@
 import { Transform } from 'class-transformer';
-import { IsNumber, IsString } from 'class-validator';
+import { IsNumber, IsString, IsUUID } from 'class-validator';
 
 export class VehicleDto {
+  @IsUUID()
+  applicationId: string;
+
   @IsString()
   make: string;
 
