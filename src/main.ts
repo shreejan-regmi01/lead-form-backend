@@ -10,6 +10,9 @@ async function bootstrap() {
       whitelist: true,
     }),
   );
+  app.enableCors({
+    origin: 'http://localhost:5173',
+  });
   await app.listen(5000);
 }
 bootstrap();
