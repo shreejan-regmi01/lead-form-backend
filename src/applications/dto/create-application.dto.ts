@@ -1,5 +1,11 @@
 import { Transform } from 'class-transformer';
-import { IsBoolean, IsEnum, IsNumber, IsString } from 'class-validator';
+import {
+  IsBoolean,
+  IsEnum,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 
 enum Term {
   OneYear = '1 year',
@@ -29,9 +35,11 @@ export class CreateApplicationDto {
   hasCarInMind: boolean;
 
   @IsString()
+  @IsOptional()
   carCondition: string;
 
   @IsString()
+  @IsOptional()
   urgency: string;
 
   @IsString()
