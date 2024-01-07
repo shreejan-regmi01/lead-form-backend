@@ -1,13 +1,15 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Vehicle } from './vehicle.model';
 import { InjectModel } from '@nestjs/sequelize';
 import { VehicleDto } from './dto/vehicle.dto';
+import { MyLogger } from 'src/logger/logger.service';
 
 @Injectable()
 export class VehiclesService {
-  constructor(@InjectModel(Vehicle) private vehicleModel: typeof Vehicle) {}
-
-  private readonly logger = new Logger(VehiclesService.name);
+  constructor(
+    @InjectModel(Vehicle) private vehicleModel: typeof Vehicle,
+    private logger: MyLogger,
+  ) {}
 
   async create(dto: VehicleDto) {
     const vehicle = await this.vehicleModel.create({ ...dto });
