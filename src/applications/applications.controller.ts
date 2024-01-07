@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { CreateApplicationDto } from './dto';
 import { ApplicationsService } from './applications.service';
+import { sumoLogger } from 'src/utils/logger';
 
 @Controller('applications')
 export class ApplicationsController {
@@ -12,7 +13,11 @@ export class ApplicationsController {
   }
 
   @Post()
-  create(@Body() appDto: CreateApplicationDto) {
-    return this.applicationsService.create(appDto);
+  async create(@Body() appDto: CreateApplicationDto) {
+    const application = await this.applicationsService.create(appDto);
+    sumoLogger.log(`Application created with id: ${application.id}`, {
+      tags: ['application', 'POST application'],
+    });
+    return application;
   }
 }
