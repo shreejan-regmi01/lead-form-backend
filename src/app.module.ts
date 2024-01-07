@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
+import { SequelizeModule } from '@nestjs/sequelize';
+import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ApplicationsModule } from './applications/applications.module';
-import { SequelizeModule } from '@nestjs/sequelize';
 import { Application } from './applications/application.model';
 import { VehiclesModule } from './vehicles/vehicles.module';
 import { Vehicle } from './vehicles/vehicle.model';
@@ -25,6 +26,7 @@ import { LoggerModule } from './logger/logger.module';
     }),
     VehiclesModule,
     LoggerModule,
+    ConfigModule.forRoot(),
   ],
   controllers: [AppController],
   providers: [AppService],
