@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateApplicationDto } from './dto';
 import { InjectModel } from '@nestjs/sequelize';
 import { Application } from './application.model';
+import { sumoLogger } from 'src/utils/logger';
 
 @Injectable()
 export class ApplicationsService {
@@ -11,9 +12,9 @@ export class ApplicationsService {
 
   async create(dto: CreateApplicationDto) {
     const application = await this.applicationModel.create({ ...dto });
+    sumoLogger.log(`Application created with id: ${application.id}`, {
+      tags: ['application', 'POST application'],
+    });
     return application;
   }
-
-  //todo: create vehicles module
-  //todo: https://stackoverflow.com/questions/68407525/many-to-one-using-sequelize-and-nestjs map association using this example
 }
