@@ -1,8 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { CreateApplicationDto } from './dto';
 import { InjectModel } from '@nestjs/sequelize';
 import { Application } from './application.model';
-import { sumoLogger } from 'src/utils/logger';
 
 @Injectable()
 export class ApplicationsService {
@@ -10,9 +9,11 @@ export class ApplicationsService {
     @InjectModel(Application) private applicationModel: typeof Application,
   ) {}
 
+  private readonly logger = new Logger(ApplicationsService.name);
+
   async create(dto: CreateApplicationDto) {
     const application = await this.applicationModel.create({ ...dto });
-    sumoLogger.log(`Application created with id: ${application.id}`, {
+    this.logger.log(`Application created with id: ${application.id}`, {
       tags: ['application', 'POST application'],
     });
     return application;

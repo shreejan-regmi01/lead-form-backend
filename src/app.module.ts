@@ -6,6 +6,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { Application } from './applications/application.model';
 import { VehiclesModule } from './vehicles/vehicles.module';
 import { Vehicle } from './vehicles/vehicle.model';
+import { LoggerModule } from './logger/logger.module';
 
 //https://stackoverflow.com/questions/60090082/sequelize-model-has-not-been-defined-when-relationship-across-multiple-databa
 @Module({
@@ -23,6 +24,7 @@ import { Vehicle } from './vehicles/vehicle.model';
       autoLoadModels: true,
     }),
     VehiclesModule,
+    LoggerModule,
   ],
   controllers: [AppController],
   providers: [AppService],
